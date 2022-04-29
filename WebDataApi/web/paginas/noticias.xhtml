@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Projecto JSF</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    </head>
+    <body>
+        <h:form>
+            <p:panel
+                style="width: 100%;
+                height: 10vh;
+                border: 1px solid orange;
+                "
+                >
+                <p:outputLabel 
+                    value="NEWS"
+                    style="
+                    line-height: 20px;
+                    text-align: center;
+                    position: relative;
+                    display: block;
+                    margin-bottom: 5px;
+                    font-size: 40px;
+                    font-family: sans-serif;
+                    font-weight: bold;
+                    color: orange;
+                    width: 100%;
+                    top: 20px;
+
+                    "
+
+                    />
+                <p:outputLabel 
+                    value="TOTAL DE ARTIGOS #{repository.listaDeNews.totalResults}"
+                    style="
+                    text-align: center;
+                    position: relative;
+                    display: block;
+                    margin-bottom: 2px;
+                    font-size: 20px;
+                    font-family: sans-serif;
+                    font-weight: bold;
+                    color: orange;
+                    width: 100%;
+                    top: 20px;
+
+                    "
+
+                    />
+                <p:outputLabel 
+                    value="STATUS #{repository.listaDeNews.status}"
+                    style="
+                    position: relative;
+                    text-align: center;
+                    display: block;
+                    margin-bottom: 2px;
+                    font-size: 20px;
+                    font-family: sans-serif;
+                    font-weight: bold;
+                    color: orange;
+                    width: 100%;
+                    top: 20px;
+
+                    "
+
+                    />
+            </p:panel>
+
+
+            <p:dataTable 
+                emptyMessage="Nenhuma presenca encontrada"
+                editable="true" 
+                value="#{repository.listaDeNews.articles}"
+                var="noticia"
+                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                paginator="true"
+                paginatorPosition="bottom"
+                rows="20" 
+                style="margin-bottom:20px;
+                width: 100%;                "
+                rowStyleClass="parametrosAvaliacaoTable"
+                >
+
+                <p:columnGroup type="header">
+                    <p:row>
+                        <p:column 
+                            filterStyle="display:none"
+                            style="vertical-align: middle !important;
+                            width: 12% !important;
+                            text-align: center;"
+                            />
+
+                        <p:column 
+                            filterStyle="display:none"
+                            style="vertical-align: middle !important;
+                            width: 20% !important;"
+                            />
+                    </p:row>
+                </p:columnGroup>
+
+                <p:column style="text-align: center; vertical-align: middle !important;">
+                    <p:outputLabel >
+                        <img  
+                            src="#{noticia.urlToImage}"
+                            style="
+                            width: 80vh;
+                            height: 50vh;
+                            "
+                            />
+
+                    </p:outputLabel>
+                </p:column>
+
+                <p:column 
+                    style="text-align: left;
+                    vertical-align: middle !important;"
+                    >
+                    <p:outputLabel 
+                        value="From :" 
+                        style="color: orange;
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "
+                        /> 
+                    <p:outputLabel
+                        value="#{noticia.source.name}"  
+                        style="
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "
+                        />
+                    <p:outputLabel 
+                        style="display: block "
+                        /> 
+                    <p:outputLabel 
+                        value="Title :" 
+                        style="color: orange;
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "
+                        /> 
+                    <p:outputLabel 
+                        value="#{noticia.title }" 
+                        style="
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "
+                        /> 
+
+                    <p:outputLabel 
+                        style="display: block "
+                        /> 
+
+                    <p:outputLabel 
+                        value="Author :" 
+                        style="color: orange;
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "
+                        /> 
+                    <p:outputLabel
+                        value="#{noticia.author}"  
+                        style="
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "
+                        />
+
+                    <p:outputLabel 
+                        style="display: block "
+                        /> 
+
+                    <p:outputLabel 
+                        value="Description :" 
+                        style="color: orange;
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "
+                        /> 
+
+                    <p:outputLabel 
+                        value="#{noticia.description}" 
+                        style="
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "                        /> 
+
+                    <p:outputLabel 
+                        style="display: block "
+                        /> 
+
+                    <p:outputLabel 
+                        value="Text :" 
+                        style="color: orange;
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "
+                        /> 
+
+                    <p:outputLabel 
+                        value="#{noticia.content}" 
+                        style="
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "                        /> 
+
+                    <p:outputLabel 
+                        style="display: block "
+                        /> 
+
+                    <p:outputLabel 
+                        value="Date Out :" 
+                        style="color: orange;
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "
+                        /> 
+
+                    <p:outputLabel 
+                        value="#{noticia.publishedAt}" 
+                        style="
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "                        >
+                        <f:convertDateTime pattern="YYYY-MM-dd HH:mm"/>
+                    </p:outputLabel>
+
+                    <p:outputLabel 
+                        style="display: block "
+                        /> 
+
+                    <p:link 
+                        value="#{noticia.url}" 
+                        style="
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        "                        /> 
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+
+
+    </body>
+</html>
