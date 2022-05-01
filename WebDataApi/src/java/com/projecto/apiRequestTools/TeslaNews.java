@@ -74,13 +74,9 @@ public class TeslaNews {
             while ((line = br.readLine()) != null) {
                 output = line;
             }
-            System.out.println("Count :" + count + "PASSO1 > " + output);
             Doc conteudos = gson.fromJson(new String(output.getBytes()), Doc.class);
             //List<Doc> conteudos = Arrays.asList(gson.fromJson(new String(output.getBytes()), Doc[].class));
-            System.out.println("PASSO2");
             lista.add(conteudos);
-
-            System.out.println("PASSO3");
             conn.disconnect();
 
         } catch (IOException ex) {
