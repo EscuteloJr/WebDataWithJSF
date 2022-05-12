@@ -52,7 +52,7 @@ public class TeslaNews {
             sc.init(null, trustAllCerts, new SecureRandom());
 
             HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-            //YOUR URL HERE
+            //API URL AQUI
             String url = "https://newsapi.org/v2/everything?q=apple&from=2022-04-28&to=2022-04-28&sortBy=popularity&apiKey=5e947ea1e0574f1d855e74b70d9955da";
             HttpsURLConnection conn = (HttpsURLConnection) new URL(url).openConnection();
 
